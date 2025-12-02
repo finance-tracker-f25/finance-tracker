@@ -5,6 +5,24 @@
 </head>
 <body>
     <h1>Personal Finance Tracker</h1>
-    <p>Frontend is connected!</p>
+
+    <h2>Add Expense</h2>
+    <form id="expense-form">
+        <label>Title:</label><br>
+        <input type="text" id="title"><br><br>
+
+        <label>Amount:</label><br>
+        <input type="number" id="amount"><br><br>
+
+        <label>Category:</label><br>
+        <input type="text" id="category"><br><br>
+
+        <button type="button" onclick="addExpense()">Add Expense</button>
+    </form>
+
+    <h2>Expenses List</h2>
+    <div id="expenses-list"></div>
+
+    <script src="script.js"></script>
 </body>
-</html>
+
