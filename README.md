@@ -55,6 +55,22 @@ http://127.0.0.1:8000
 ```
 ![alt text](image.png)
 
+```
+http://127.0.0.1:8000/expenses
+```
+![alt text](image-2.png)
+
+```
+http://127.0.0.1:8000/expenses/summary
+```
+
+![alt text](image-3.png)
+
+```
+http://127.0.0.1:8000/docs
+```
+![alt text](image-4.png)
+
 ▶️ Step 5: Open the Frontend
 
 Navigate to:
@@ -63,3 +79,15 @@ finance-tracker/frontend/index.html
 ```
 
 Right-click → Open with Live Server
+
+![alt text](image-1.png)
+
+📌 5. Expected Behavior
+
+Once both backend & frontend are running:
+
+✔️ Add an expense → Instantly stored in database
+✔️ Expense list updates without reload
+✔️ Summary updates live
+✔️ Chart updates dynamically
+✔️ Delete button removes item instantly
