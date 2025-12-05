@@ -45,3 +45,31 @@ jobs:
         with:
           name: backend-coverage
           path: backend/coverage.xml
+
+  terraform-validate:
+    name: Validate Terraform infrastructure
+    runs-on: ubuntu-latest
+    needs: backend-tests
+    if: hashFiles('infra/**/*.tf') != ''
+
+    defaults:
+      run:
+        working-directory: infra
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: "1.6.6"
+
+      - name: Initialize Terraform
+        run: terraform init -input=false
+
+      - name: Check Terraform formatting
+        run: terraform fmt -check
+
+      - name: Validate Terraform configuration
+        run: terraform validate
