@@ -5,7 +5,7 @@ variable "aws_region" {
 }
 
 variable "project_name" {
-  description = "Name prefix for all infra resources"
+  description = "Project prefix for naming AWS resources"
   type        = string
   default     = "finance-tracker"
 }
@@ -28,14 +28,8 @@ variable "instance_type" {
   default     = "t2.micro"
 }
 
-variable "key_name" {
-  description = "SSH key name for EC2 access (must exist in AWS Academy)"
-  type        = string
-  default     = ""
-}
-
 variable "frontend_bucket_name" {
-  description = "S3 bucket name for hosting frontend"
+  description = "Unique bucket name for frontend hosting"
   type        = string
   default     = "finance-tracker-frontend-bucket"
 }

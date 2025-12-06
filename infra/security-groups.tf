@@ -1,49 +1,47 @@
 ##############################################
-# Security Group for EC2 (Backend)
+# Security Group for Backend EC2
 ##############################################
 
 resource "aws_security_group" "backend_sg" {
   name        = "${var.project_name}-backend-sg"
-  description = "Allow backend traffic"
+  description = "Security group for backend EC2"
   vpc_id      = aws_vpc.main.id
 
-  ##########################################
-  # Inbound Rules
-  ##########################################
+  ##############################################
+  # Ingress Rules
+  ##############################################
 
-  # Allow SSH (optional)
+  # Allow FastAPI (port 8000)
   ingress {
-    description = "SSH access"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  # Allow FastAPI port
-  ingress {
-    description = "FastAPI app port"
+    description = "FastAPI backend"
     from_port   = 8000
     to_port     = 8000
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # Optional: Allow HTTP (80)
+  # Allow HTTP (optional)
   ingress {
-    description = "HTTP"
+    description = "Allow HTTP"
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  ##########################################
-  # Outbound Rules
-  ##########################################
+  # Allow SSH (you can remove later)
+  ingress {
+    description = "Allow SSH"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 
+  ##############################################
+  # Outbound traffic
+  ##############################################
   egress {
-    description = "Allow all outbound traffic"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"

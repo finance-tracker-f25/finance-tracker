@@ -19,8 +19,8 @@ resource "aws_vpc" "main" {
 resource "aws_subnet" "public_subnet" {
   vpc_id                  = aws_vpc.main.id
   cidr_block              = var.public_subnet_cidr
-  map_public_ip_on_launch = true
   availability_zone       = "${var.aws_region}a"
+  map_public_ip_on_launch = true
 
   tags = {
     Name = "${var.project_name}-public-subnet"
@@ -40,7 +40,7 @@ resource "aws_internet_gateway" "igw" {
 }
 
 ##############################################
-# Route Table + Route to Internet
+# Route Table
 ##############################################
 
 resource "aws_route_table" "public_rt" {
@@ -50,6 +50,10 @@ resource "aws_route_table" "public_rt" {
     Name = "${var.project_name}-public-rt"
   }
 }
+
+##############################################
+# Default Route (0.0.0.0/0 → IGW)
+##############################################
 
 resource "aws_route" "public_internet_access" {
   route_table_id         = aws_route_table.public_rt.id
