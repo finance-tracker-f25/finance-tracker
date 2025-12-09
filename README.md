@@ -24,6 +24,7 @@ We created a working full-stack mini-application that acts as the foundation for
 ```
  GET /expenses
  POST /expenses
+ DELETE /expense
 ```
 + Uses Pydantic models for schema validation
 
