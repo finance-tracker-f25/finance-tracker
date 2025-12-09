@@ -10,19 +10,80 @@ The project demonstrates real-world practices like branching strategy, pull requ
 
 This task focuses on building the core application that will later be deployed through our CI/CD pipeline. We developed a simple Personal Finance Tracker where users can add, view, and delete expenses, while also viewing a real-time summary and spending breakdown. The backend uses FastAPI with SQLite for data storage, and the frontend is built using HTML, CSS, and JavaScript.
 
-📌 1. What We Built
+### What We Built
 
 We created a working full-stack mini-application that acts as the foundation for our CI/CD pipeline. It includes a clean frontend UI, a FastAPI backend service with multiple REST endpoints, and an SQLite database to persist expense records. The app is small and simple but fully functional, making it ideal for demonstrating automation.
 
-📌 2. Backend API Overview
+## Architecture Overview
 
-The backend exposes essential REST APIs for adding, retrieving, summarizing, and deleting expenses. All operations connect directly to the SQLite database using SQLAlchemy ORM. A basic health check endpoint is also included for CI/CD and monitoring.
+### Backend (FastAPI)
 
-📌 3. Frontend Overview
++ The backend is a REST API built using FastAPI
 
-The frontend provides an easy-to-use layout with an “Add Expense” form, a scrollable expense list, a spending summary, and a dynamic pie chart visualizing category-wise spending. It interacts with the backend using JavaScript Fetch API.
++ Provides endpoints such as:
+```
+ GET /expenses
+ POST /expenses
+```
++ Uses Pydantic models for schema validation
 
-📌 4. How to Run the Application Locally
++ Modular routing ```(router/expenses.py)```
+
+### Frontend
+
++ Simple HTML/JS frontend
+
++ UI connects to FastAPI endpoints through HTTP requests
+
++ Hosted through AWS later (S3 + CloudFront planned)
+
+### Database Layer
+
++ Currently in‐memory list for storage
+
+Later planned:
+
++ PostgreSQL/MySQL on AWS RDS
+
++ Integration through SQLAlchemy
+
+### Infrastructure
+Terraform
+
+Infra folder already created — this is planned to provision:
+```
+AWS VPC
+Public/Private subnets
+EC2 FastAPI backend
+RDS DB
+IAM roles
+Security groups
+```
+
+
+### CI/CD Pipeline
+
+Plans:
+```
+GitHub Actions
+Build backend container
+Run tests
+Deploy to AWS automatically
+```
+Stages will be:
+```
+Stage	Description
+Source	Git branch → PR workflow
+Build	Python dependencies, Docker build
+Test	pytest + FastAPI tests
+Deploy	Terraform apply → AWS
+```
+### Monitoring
+```
+CloudWatch Logs
+AWS Metrics
+```
+📌 How to Run the Application Locally
 
 Follow these steps to run both backend and frontend.
 
