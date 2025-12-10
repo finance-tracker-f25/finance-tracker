@@ -97,17 +97,17 @@ Once both backend & frontend are running:
 ✔️ Delete button removes item instantly
 
 
-- **Task 4 – CI/CD pipeline** for backend tests and infrastructure deployment
-- **Task 6 – Monitoring & logging** of the deployed AWS resources
+ ## Task 4 – CI/CD pipeline for backend tests and infrastructure deployment
+ ## Task 6 – Monitoring & logging of the deployed AWS resources
 
 Tools used:
-
+```
 - GitHub Actions (CI/CD)
 - Python + pytest + pytest-cov
 - Terraform (IaC)
 - AWS S3 (deployment / logs bucket)
 - AWS CloudWatch (dashboard + alarms)
-
+```
 ---
 
 ### Related Repository Structure
