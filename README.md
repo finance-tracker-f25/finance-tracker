@@ -180,6 +180,47 @@ The pipeline runs automatically on:
 This end-to-end flow satisfies the assignment requirement for a CI/CD pipeline with
 Source → Build → Test → Deploy stages and automated triggers on branch updates.
 
+## 📸 Task 4 – CI/CD Pipeline Evidence
+
+Below screenshots provide proof of automated testing and deployment workflow.
+
+### 4.1 – Local Backend Tests Passed
+All unit tests executed successfully before committing changes.  
+👉 <img width="897" height="294" alt="Screenshot 2025-12-05 173222" src="https://github.com/user-attachments/assets/f43d1867-e70b-4e91-a0c0-583872b7698b" />
+
+
+
+---
+
+### 4.2 – GitHub Actions – Tests with Coverage Success
+Automated test stage executed in CI/CD pipeline.  
+👉 <img width="1735" height="902" alt="Screenshot 2025-12-05 174818" src="https://github.com/user-attachments/assets/55ce16ae-c237-457d-bc43-d0bf1f3447f8" />
+<img width="1070" height="743" alt="Screenshot 2025-12-10 120816" src="https://github.com/user-attachments/assets/6211077b-3799-4fde-be5a-39e141ff8642" />
+
+
+
+---
+
+### 4.3 – Terraform Validation Stage Success
+Infrastructure validation completed before deployment.  
+👉 <img width="506" height="462" alt="Screenshot 2025-12-10 122609" src="https://github.com/user-attachments/assets/71d108aa-3eb3-4982-8330-fa440f28db37" />
+
+
+---
+
+### 4.4 – Deploy Infrastructure to AWS
+Terraform successfully deployed AWS resources.  
+👉 <img width="466" height="401" alt="Screenshot 2025-12-10 122930" src="https://github.com/user-attachments/assets/d19aefef-cb17-4086-a7aa-3ea852b777c3" />
+
+---
+
+### 4.5 – Full Pipeline Successful Run
+Pipeline executed all stages without errors.  
+👉 <img width="1849" height="634" alt="Screenshot 2025-12-10 121119" src="https://github.com/user-attachments/assets/7810dd06-4dbe-4219-8a37-19bcd5fe26f7" />
+
+
+---
+
 ---
 ### Monitoring & Logging (Task 6)
 
